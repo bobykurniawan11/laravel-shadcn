@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialiteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -12,6 +13,13 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+
+
+Route::group(['prefix' => 'socialite'], function () {
+    Route::get('/callback/{provider}', [SocialiteController::class, 'handleProviderCallback'])->name('social.login');
+    Route::get('/redirect/{provider}', [SocialiteController::class, 'redirectToProvider'])->name('social.redirect');
 });
 
 Route::get('/dashboard', function () {

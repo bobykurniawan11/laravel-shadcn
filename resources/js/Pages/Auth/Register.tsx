@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import SocialLoginButtons from './components/SocialLoginButtons';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -49,7 +50,7 @@ export default function Register() {
                             name="name"
                             type="text"
                             value={data.name}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) => setData('name', e.target.value)}
                         />
                         {errors.name && (
@@ -65,7 +66,7 @@ export default function Register() {
                             name="email"
                             type="email"
                             value={data.email}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) => setData('email', e.target.value)}
                         />
                         {errors.email && (
@@ -84,7 +85,7 @@ export default function Register() {
                             id="password"
                             name="password"
                             value={data.password}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) =>
                                 setData('password', e.target.value)
                             }
@@ -107,7 +108,7 @@ export default function Register() {
                             id="password_confirmation"
                             name="password_confirmation"
                             value={data.password_confirmation}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) =>
                                 setData('password_confirmation', e.target.value)
                             }
@@ -135,6 +136,8 @@ export default function Register() {
                             'Register'
                         )}
                     </Button>
+
+                    <SocialLoginButtons />
 
                     <p className="text-center text-sm text-muted-foreground">
                         Already have an account?{' '}

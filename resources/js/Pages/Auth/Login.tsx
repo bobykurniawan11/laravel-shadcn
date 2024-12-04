@@ -12,6 +12,7 @@ import { Label } from '@/components/ui/label';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import SocialLoginButtons from './components/SocialLoginButtons';
 
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -48,7 +49,7 @@ export default function Login() {
                             name="email"
                             type="email"
                             value={data.email}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) => setData('email', e.target.value)}
                         />
                         {errors.email && (
@@ -73,7 +74,7 @@ export default function Login() {
                             id="password"
                             name="password"
                             value={data.password}
-                            onBlur={() => {}}
+                            onBlur={() => { }}
                             onChange={(e) =>
                                 setData('password', e.target.value)
                             }
@@ -101,6 +102,8 @@ export default function Login() {
                             'Sign in'
                         )}
                     </Button>
+
+                    <SocialLoginButtons />
 
                     <p className="text-center text-sm text-muted-foreground">
                         Don't have an account?{' '}
